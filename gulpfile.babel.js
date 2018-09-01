@@ -34,91 +34,10 @@ gulp.task('build-react', ()=>{
   debugger
   return browserify(options)
         .transform(babelify)
-  .on('error', err=>{
-    console.log(`eror: ${err}`)
-  })
-  .transform(aliasify, aliasConfig)
-  .on('error', err=>{
-    console.log(`eror: ${err}`)
-  })
+        .transform(aliasify, aliasConfig)
         .bundle()
-  .on('error', err=>{
-    console.log(`eror: ${err}`)
-  })
-  .pipe(run())
-  .pipe(tapSpec())
-  .pipe(process.stdout)
-  // .on('results', console.log)
-  //       .pipe(source())
-  // .on('error', err=>{
-  //   console.log(`eror: ${err}`)
-  // })
-  //       .pipe(buffer())
-  // .on('error', err=>{
-  //   console.log(`eror: ${err}`)
-  // })
-  //       .pipe(run())
-  // .on('error', err=>{
-  //   console.log(`eror: ${err}`)
-  // })
-        // .pipe(print())
-  // .on('error', err=>{
-  //   console.log(`eror: ${err}`)
-  // })
-  //       .pipe(gulp.dest('./'))
-  // .on('error', err=>{
-  //   console.log(`eror: ${err}`)
-  // })
-  // .on('error', err=>{
-  //   console.log(`eror: ${err}`)
-  // })
+        .pipe(run())
+        .pipe(tapSpec())
+        .pipe(process.stdout)
+ 
 })
-
-
-
-// gulp.task('js', done=>{
-//     const bundler = //transform(filename=>{
-//          browserify({
-//             // entries:filename,
-//             debug:true,
-//         })
-//         .on('error', err=>{
-//             // console.log(`BERROR: ${err}`)
-//         })
-//         .transform('babelify', {
-//             presets:['env']
-//         })
-//
-//     return bundler.bundle()
-//     .pipe(source())
-//     // return gulp.src('./src/tests.js')
-//     // .pipe(through2((file, enc, next)=>{
-//     //     console.log(file, typeof file)
-//     //     const b = browserify()
-//     //     b.add(file.path)
-//
-//         // return b.transform(babelify)
-//         // .bundle((err, res)=>{
-//         //     console.log(res, err)
-//         //     file.contents = res
-//         //     next(null, file)
-//         // })
-//         // .on('error', err => {
-//         //   console.log(`BERROR: ${err}`)
-//         // })
-//     // }))
-//     .pipe(buffer())
-//     .on('error', err => {
-//       console.log(`BERROR: ${err}`)
-//     })
-//     //.pipe(source('app.js'))
-// //    .pipe(bundler)
-// //     .pipe(buffer())
-//     .on('error', err=>{
-//         console.log(`ERROR: ${err}`)
-//     })
-//     .pipe(print())
-//     .pipe(process.stdout)
-// })
-//
-
